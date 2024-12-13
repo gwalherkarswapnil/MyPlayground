@@ -20,10 +20,8 @@ func multiplyMatrices(A: [[Int]], B: [[Int]]) -> [[Int]]? {
     let rowsB = B.count
     let colsB = B[0].count
 
-    // Initialize the resulting matrix with zeros
     var result = Array(repeating: Array(repeating: 0, count: colsB), count: rowsA)
     
-    // Perform the multiplication
     for i in 0..<rowsA {
         for j in 0..<colsB {
             for k in 0..<colsA {
@@ -35,14 +33,12 @@ func multiplyMatrices(A: [[Int]], B: [[Int]]) -> [[Int]]? {
     return result
 }
 
-// Example 3x5 Matrix A
 let A: [[Int]] = [
     [1, 2, 3, 4, 5],
     [6, 7, 8, 9, 10],
     [11, 12, 13, 14, 15]
 ]
 
-// Example 5x3 Matrix B
 let B: [[Int]] = [
     [1, 2, 3],
     [4, 5, 6],
@@ -71,19 +67,15 @@ func maxCount(banned: [Int], n: Int, maxSum: Int) -> Int {
     var sum = 0
     var count = 0
     
-    // Iterate through the numbers from 1 to n
     for i in 1...n {
-        // Skip if the number is banned
         if bannedSet.contains(i) {
             continue
         }
         
-        // If adding the current number exceeds maxSum, stop
         if sum + i > maxSum {
             break
         }
         
-        // Otherwise, add the number to the sum and increment the count
         sum += i
         count += 1
     }
@@ -230,12 +222,10 @@ func findScore(_ nums: [Int]) -> Int {
             }
         }
         
-        // If no unmarked element is found, exit the loop.
         if smallestIndex == -1 {
             break
         }
         
-        // Add the smallest number to the score.
         score += smallestNumber
         
         // Mark the smallest element and its adjacent elements.
