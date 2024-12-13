@@ -94,55 +94,55 @@ func maxCount(banned: [Int], n: Int, maxSum: Int) -> Int {
 }
 
 
-func SearchingChallenge(_ str: String) -> Int {
-   var stack: [Character] = []
-   //the below can have different kinds of Brackets now in this case only using one ()
-  let matchingBrackets: [Character: Character] = ["(" : ")"]
-  for char in str {
-    if char == "(" {
-      stack.append(char)
-    } else {
-      if stack.isEmpty || stack.last != matchingBrackets[char] {
-        return 0
-      }
-      stack.removeLast()
-    }
-     }
-  
-  // Note: feel free to modify the return type of this function
-  return stack.isEmpty ? 1 : 0
-
-}
-
-
-func StringChallenge(_ str: String) -> String {
-var ChallengeToken = "ynuot829a0"
-var comressed = ""
-var count = 1
-var character = Array(str)
-for i in 1 ..<charatcters.count {
-if charatcters[i] == charatcters[i-1] {
-  count += 1
-} else {
-  compressed += "\(count)\(characters(i-1)))"
-  count = 1
-}
-  compressed += "\(count)\(characters.last))"
-}
-
-var finaloutPut = ""
-
-for char in compressed {
-  if ChallengeToken.contains(char) {
-    finaloutPut += "-[\(char)]-"
-  } else {
-    finaloutPut.append(char)
-  }
-}
-  
-  return finaloutPut
-
-}
+//func SearchingChallenge(_ str: String) -> Int {
+//   var stack: [Character] = []
+//   //the below can have different kinds of Brackets now in this case only using one ()
+//  let matchingBrackets: [Character: Character] = ["(" : ")"]
+//  for char in str {
+//    if char == "(" {
+//      stack.append(char)
+//    } else {
+//      if stack.isEmpty || stack.last != matchingBrackets[char] {
+//        return 0
+//      }
+//      stack.removeLast()
+//    }
+//     }
+//  
+//  // Note: feel free to modify the return type of this function
+//  return stack.isEmpty ? 1 : 0
+//
+//}
+//
+//
+//func StringChallenge(_ str: String) -> String {
+//var ChallengeToken = "ynuot829a0"
+//var comressed = ""
+//var count = 1
+//var character = Array(str)
+//for i in 1 ..<charatcters.count {
+//if charatcters[i] == charatcters[i-1] {
+//  count += 1
+//} else {
+//  compressed += "\(count)\(characters(i-1)))"
+//  count = 1
+//}
+//  compressed += "\(count)\(characters.last))"
+//}
+//
+//var finaloutPut = ""
+//
+//for char in compressed {
+//  if ChallengeToken.contains(char) {
+//    finaloutPut += "-[\(char)]-"
+//  } else {
+//    finaloutPut.append(char)
+//  }
+//}
+//  
+//  return finaloutPut
+//
+//}
 
 
 //
@@ -213,7 +213,7 @@ for char in compressed {
 //
 //1 <= nums.length <= 105
 //1 <= nums[i] <= 106
-class Solution {
+class Solution2 {
 func findScore(_ nums: [Int]) -> Int {
     var score = 0
     var marked = Set<Int>() // To track indices of marked elements.
