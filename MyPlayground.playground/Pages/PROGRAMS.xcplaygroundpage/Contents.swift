@@ -170,3 +170,35 @@ func isAnagram(s: String, t: String) -> Bool {
 extension StringProtocol {
     subscript(offset: Int) -> Character { self[index(startIndex, offsetBy: offset)] }
 }
+
+
+
+class Solution {
+    func countPalindromicSubsequence(_ s: String) -> Int {
+    let chars = Array(s)
+    var first = [Character: Int]()
+    var last = [Character: Int]()
+    
+    for i in 0..<chars.count {
+        if first[chars[i]] == nil {
+            first[chars[i]] = i
+        }
+        last[chars[i]] = i
+    }
+    
+    var result = Set<String>()
+    for mid in 0..<chars.count {
+        for c in "abcdefghijklmnopqrstuvwxyz" {
+            guard let firstIndex = first[c],
+                  let lastIndex = last[c],
+                  firstIndex < mid,
+                  mid < lastIndex else {
+                continue
+            }
+            result.insert(String([c, chars[mid], c]))
+        }
+    }
+    
+    return result.count
+    }
+}
