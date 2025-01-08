@@ -76,3 +76,37 @@ class Solution {
         return maxScore
     }
 }
+
+
+class Solution {
+    // Helper function to check if str1 is both prefix and suffix of str2
+    func isPrefixAndSuffix(_ str1: String, _ str2: String) -> Bool {
+        // If str1 is longer than str2, it can't be both prefix and suffix
+        if str1.count > str2.count {
+            return false
+        }
+        
+        // Check if str1 is prefix of str2
+        let prefix = str2.prefix(str1.count)
+        // Check if str1 is suffix of str2
+        let suffix = str2.suffix(str1.count)
+        
+        // Return true only if str1 matches both prefix and suffix
+        return String(prefix) == str1 && String(suffix) == str1
+    }
+    
+    func countPrefixSuffixPairs(_ words: [String]) -> Int {
+        var count = 0
+        
+        // Check all possible pairs where i < j
+        for i in 0..<words.count {
+            for j in (i + 1)..<words.count {
+                if isPrefixAndSuffix(words[i], words[j]) {
+                    count += 1
+                }
+            }
+        }
+        
+        return count
+    }
+}
